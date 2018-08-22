@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack",
+    "build": "npx webpack -p",
     "build:watch": "npx webpack --watch",
     "start": "NODE_ENV=development npx nodemon src/server/index.js",
     "launch": "node src/server.js"

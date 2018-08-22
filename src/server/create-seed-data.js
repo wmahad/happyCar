@@ -1,8 +1,8 @@
 const algoriasearch = require('algoliasearch');
 const data = require('./data.js');
 
-// const client = algoriasearch(appID, apiKey);
-const client = algoriasearch('67DCUGBIXL', '62ae78f3757533bc7202b4730189cf29');
+const { APP_ID, API_KEY } = process.env;
+const client = algoriasearch(APP_ID, API_KEY);
 const carIndex = client.initIndex('car_index');
 
 carIndex.setSettings({

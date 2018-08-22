@@ -1,5 +1,5 @@
 'use strict';
-// const webpack = require('webpack');
+const webpack = require('webpack');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader')
 const LiveReloadPlugin = require('webpack-livereload-plugin');
@@ -10,7 +10,7 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: 'bundle.min.js',
     },
-    mode: 'development',
+    mode: 'production',
     devtool: 'cheap-eval-source-map',
     module: {
         rules: [
@@ -36,6 +36,10 @@ module.exports = {
     plugins: [
         new LiveReloadPlugin(),
         new VueLoaderPlugin(),
+        new webpack.DefinePlugin({
+            APP_ID: JSON.stringify(process.env.APP_ID),
+            API_KEY: JSON.stringify(process.env.API_KEY),
+        })
     ],
     resolve: {
         extensions: ['.js']

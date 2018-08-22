@@ -2,8 +2,8 @@
 <div class='row'>
 <div id="app" class="container">
     <ais-index
-        appId="67DCUGBIXL"
-        apiKey="62ae78f3757533bc7202b4730189cf29"
+        :appId="APP_ID"
+        :apiKey="API_KEY"
         index-name="car_index">
         <div class="row">
             <FilterView />
@@ -27,6 +27,9 @@ import FilterView from './components/Filter.vue';
 
 export default {
     name: 'app',
+    data() {
+        return { APP_ID: APP_ID, API_KEY: API_KEY }
+    },
     components: {
         Product,
         FilterView
